@@ -12,9 +12,14 @@ cd nginx-*
 cd ..
 
 ## configure nginx
+jquery_path=/usr/local/nginx/html/ajax/libs/jquery/1.11.3
+mkdir -p $jquery_path
+mv jquery.min.js $jquery_path
+
 ip_addr=$(ifconfig | grep "inet addr" | sed -n 1p | cut -d':' -f2 | cut -d' ' -f1)
 sed -i "/sub_filter_types/a\\        sub_filter www.epochtimes.com $ip_addr;" nginx.conf
 sed -i "/sub_filter_types/a\\        sub_filter i.epochtimes.com $ip_addr;" nginx.conf
+sed -i "/sub_filter_types/a\\        sub_filter https://ajax.googleapis.com http://$ip_addr;" nginx.conf
 mv nginx.conf /usr/local/nginx/conf/nginx.conf
 mv nginx /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
@@ -29,6 +34,10 @@ sed -i "s/type/ss/" $page_path/ss.html
 
 sed "s/localhost/$ip_addr/g" link.html > $page_path/ssr.html
 sed -i "s/type/ssr/" $page_path/ssr.html
+
+jquery_path=/usr/local/nginx/html/ajax/libs/jquery/1.11.3
+mkdir -p $jquery_path
+mv jquery.min.js $jquery_path
 
 ## install ssr & bbr
 unzip shadowsocksr.zip
@@ -45,4 +54,5 @@ service ssr start
 ## timezone setting 
 cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 chkconfig iptables off
+
 
