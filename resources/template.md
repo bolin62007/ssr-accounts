@@ -17,3 +17,6 @@ IP地址：`server_ip`
 
 ######  SSR地址： `ssr_link`     
 ######  SSR二维码:  <a href="http://localhost/info/ssr.html" target="_blank">http://localhost/info/ssr.html</a>
+
+#####  无SS/SSR直接访问:
+###### [大纪元新闻网](http://localhost)  [法轮大法](http://localhost:8000)  [明慧网](http://localhost:8080)
