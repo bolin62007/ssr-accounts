@@ -1,4 +1,6 @@
-# SS/SSR 账号 【update_date】
+# SS/SSR 账号 
+
+友情提示：SS服务器可能遭到GFW封锁, 届时将重建服务器并更新账号信息, 最后更新于【update_date】
 
 ##### 账号信息
 IP地址：`server_ip`  
