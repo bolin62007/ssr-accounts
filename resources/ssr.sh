@@ -39,7 +39,7 @@ urlsafe_base64(){
 ss_link_qr(){
 	SSbase64=$(urlsafe_base64 "${ss_method}:${ss_password}@${ss_server_ip}:${ss_server_port}")
 	SSurl="ss://${SSbase64}"
-	qrencode -o $qr_folder/ss.png "${SSurl}"
+	qrencode -o $qr_folder/ss.png -s 8 "${SSurl}"
 	echo "${SSurl}" >> url.txt
 }
 
@@ -49,7 +49,7 @@ ssr_link_qr(){
 	SSRPWDbase64=$(urlsafe_base64 "${ss_password}")
 	SSRbase64=$(urlsafe_base64 "${ss_server_ip}:${ss_server_port}:${SSRprotocol}:${ss_method}:${SSRobfs}:${SSRPWDbase64}")
 	SSRurl="ssr://${SSRbase64}"
-	qrencode -o $qr_folder/ssr.png "${SSRurl}"
+	qrencode -o $qr_folder/ssr.png -s 8 "${SSRurl}"
 	echo "${SSRurl}" >> url.txt
 }
 
