@@ -1,20 +1,16 @@
 #!/bin/bash
 
 ## install dependencies
-yum install -y vim gcc wget unzip net-tools python jq qrencode
+yum install -y vim gcc gcc-c++ wget unzip net-tools openssl-devel python jq qrencode
 
 ## install nginx
-tar xf nginx.tar.gz
-cd nginx-*
-./configure --without-http_rewrite_module --without-http_gzip_module --with-http_sub_module \
-    && make \
-    && make install
-cd ..
+./install-nginx.sh
+
 
 ## configure nginx
 jquery_path=/usr/local/nginx/html/ajax/libs/jquery/1.11.3
 mkdir -p $jquery_path
-mv jquery.min.js $jquery_path
+cp jquery.min.js $jquery_path
 
 ip_addr=$(ifconfig | grep "inet addr" | sed -n 1p | cut -d':' -f2 | cut -d' ' -f1)
 sed -i "/#epochtimes#/a\\\\t\\t\\tsub_filter www.epochtimes.com $ip_addr;" nginx.conf
@@ -25,6 +21,8 @@ sed -i "/#falundafa#/a\\\\t\\t\\tsub_filter www.minghui.org $ip_addr:8080;" ngin
 sed -i "/#minghui#/a\\\\t\\t\\tsub_filter www.minghui.org $ip_addr:8080;" nginx.conf
 sed -i "/#minghui#/a\\\\t\\t\\tsub_filter stats.minghui.org $ip_addr:8080;" nginx.conf
 sed -i "/#minghui#/a\\\\t\\t\\tsub_filter gb.falundafa.org $ip_addr:8000;" nginx.conf
+sed -i "/#google#/a\\\\t\\t\\tsub_filter https://www.google.com http://$ip_addr:8888;" nginx.conf
+sed -i "/#google#/a\\\\t\\t\\tsub_filter https://id.google.com http://$ip_addr:8888;" nginx.conf
 mv nginx.conf /usr/local/nginx/conf/nginx.conf
 mv nginx /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
