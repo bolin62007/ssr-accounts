@@ -7,20 +7,19 @@ function format_url(){
 	echo $url
 }
 
-segs_of_ep=(16 12 16 21 12 10)
-for((i=0; i<${#segs_of_ep[@]}; i++)); do
+mkdir fytdx
+
+for((i=0; i<6; i++)); do
 	ep=$((i+1))
-	segs=${segs_of_ep[$i]}
-	for((seg=1; seg<=segs; seg++)); do
+	for((seg=1; seg<=21; seg++)); do
 		url=$(format_url $ep $seg)
 		wget $url
 	done
 	unrar e $(basename $(format_url $ep 1))
 	rm -fr *.rar
+	mv *.mp4 fytdx/$ep.mp4
 done
 
-zip FYTDX.zip *.mp4
-rm -fr *.mp4
 
 
 

@@ -22,6 +22,8 @@ function format_url(){
 	echo $url
 }
 
+mkdir future
+
 for((i=0; i<10; i++)); do
 	ep=$((i+1))
 	for((seg=1; seg<=40; seg++)); do
@@ -30,10 +32,10 @@ for((i=0; i<10; i++)); do
 	done
 	unrar e $(basename $(format_url $ep 1))
 	rm -fr *.rar
+	ep=$(printf "%02d" $ep)
+	mv *.mp4 future/$ep.mp4
 done
 
-zip FYTDX.zip *.mp4
-rm -fr *.mp4
 
 
 
