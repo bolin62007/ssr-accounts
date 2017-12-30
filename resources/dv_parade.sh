@@ -6,8 +6,6 @@ function format_url(){
 	echo $url
 }
 
-mkdir future
-
 for seg in {1..103}; do
 	url=$(format_url $seg)
 	#echo $url
@@ -17,7 +15,6 @@ done
 first_seg=$(basename $(format_url 1))
 unrar e $first_seg
 rm -fr *.rar
+mv 2016*.mp4 parade.mp4
 
-
-
-
+ 

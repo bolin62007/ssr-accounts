@@ -32,7 +32,7 @@ for((ep=1; ep<=10; ep++)); do
 	unrar e $(basename $(format_url $ep 1))
 	rm -fr *.rar
 	fname=$(printf "%02d" $ep)
-	mv *.mp4 future/$fname.mp4
+	mv NowAnd*.mp4 future/$fname.mp4
 done
 
 

@@ -20,5 +20,3 @@ for((ep=1; ep<=6; ep++)); do
 done
 
 
-
-
