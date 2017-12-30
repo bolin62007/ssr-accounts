@@ -9,8 +9,7 @@ function format_url(){
 
 mkdir fytdx
 
-for((i=0; i<6; i++)); do
-	ep=$((i+1))
+for((ep=1; ep<=6; ep++)); do
 	for((seg=1; seg<=21; seg++)); do
 		url=$(format_url $ep $seg)
 		wget $url

@@ -14,26 +14,25 @@ file_descs=(
 )
 
 function format_url(){
-	ep=$1
-	desc=${file_descs[$((ep-1))]}
-	seg=$(printf "%02d" $2)
+	local ep=$1
+	local desc=${file_descs[$((ep-1))]}
+	local seg=$(printf "%02d" $2)
 	ep=$(printf "%02d" $1)
-	url=http://media4.minghui.org/media/video/2016/8/10/NowAndForTheFuture/MP4/NowAndForTheFuture${ep}_final_${desc}_NTD_Broadcast_mp4.part${seg}.rar
+	local url=http://media4.minghui.org/media/video/2016/8/10/NowAndForTheFuture/MP4/NowAndForTheFuture${ep}_final_${desc}_NTD_Broadcast_mp4.part${seg}.rar
 	echo $url
 }
 
 mkdir future
 
-for((i=0; i<10; i++)); do
-	ep=$((i+1))
+for((ep=1; ep<=10; ep++)); do
 	for((seg=1; seg<=40; seg++)); do
 		url=$(format_url $ep $seg)
 		wget $url
 	done
 	unrar e $(basename $(format_url $ep 1))
 	rm -fr *.rar
-	ep=$(printf "%02d" $ep)
-	mv *.mp4 future/$ep.mp4
+	fname=$(printf "%02d" $ep)
+	mv *.mp4 future/$fname.mp4
 done
 
 
