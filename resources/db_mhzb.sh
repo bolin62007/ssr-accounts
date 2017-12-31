@@ -22,3 +22,30 @@ for((num=index; num<2000; num++)); do
 	mv MHZB*.pdf mhzb
 done
 
+mv mhzb/* $target
+
+
+## generate html
+cat > mhzb.html << EOF
+<html>
+<head>
+<title>真相期刊</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<p><strong>明慧周报:</strong></p>
+<ol>
+EOF
+
+ip=$(ifconfig eth0 | grep "inet addr" | cut -d':' -f2 | cut -d' ' -f1)
+for b in $(ls -r $target); do
+	num=$(echo $b | cut -d'_' -f2)
+	echo "<li><a href='http://${ip}/books/mhzb/$b'>第${num}期</a></li>" >> mhzb.html
+done
+
+echo "</ol></body></html>" >> mhzb.html
+
+mv mhzb.html $target/..
+cp $target/../mhzb.html $target/../index.html
+
+	
