@@ -15,7 +15,7 @@ IP地址：`45.32.92.137`
 ######  SS地址： `ss://YWVzLTI1Ni1jZmI6RmFMdW5EYUZhSGFvQDUxM0A0NS4zMi45Mi4xMzc6MjM0NQ`   
 ######  SS二维码:  <a href="http://45.32.92.137/info/ss.html" target="_blank">http://45.32.92.137/info/ss.html</a>
 
-######  SSR地址： `ssr://NDUuMzIuOTIuMTM3OjIzNDU6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnRsczEuMl90aWNrZXRfYXV0aDpSbUZNZFc1RVlVWmhTR0Z2UURVeE13Lz9yZW1hcmtzPVoyWjNMV0p5WldGclpYSWdXelExTGpNeUxqa3lMakV6TjEw`     
+######  SSR地址： `ssr://NDUuMzIuOTIuMTM3OjIzNDU6YXV0aF9zaGExX3Y0OmFlcy0yNTYtY2ZiOnRsczEuMl90aWNrZXRfYXV0aDpSbUZNZFc1RVlVWmhTR0Z2UURVeE13Lz9yZW1hcmtzPWFIUjBjRG92TDNSeWRYUm9MbUYwYzNCaFkyVXVaWFV2TWpBeE55OHhNaTh6TUM5c1pXZGxibVF2`     
 ######  SSR二维码:  <a href="http://45.32.92.137/info/ssr.html" target="_blank">http://45.32.92.137/info/ssr.html</a>
 
 #####  无SS/SSR直接访问:
