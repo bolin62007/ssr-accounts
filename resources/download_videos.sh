@@ -15,7 +15,10 @@ for s in ../dv_*.sh; do
 done
 
 # move single files
-mv *mp4 $vidoes
+mv *mp4 $videos
 
 cd ..
 
+ip_addr=$(ifconfig | grep "inet addr" | sed -n 1p | cut -d':' -f2 | cut -d' ' -f1)
+sed -i "s/localhost/$ip_addr/g" videos.html
+mv videos.html $videos/index.html

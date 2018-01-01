@@ -7,7 +7,7 @@ export PATH
 ss_password='FaLunDaFaHao@513'
 ss_method=aes-256-cfb
 ss_protocol=auth_sha1_v4_compatible
-ss_protocol_param=100
+ss_protocol_param=200
 ss_obfs=tls1.2_ticket_auth_compatible
 ss_server_port=2345
 ss_server_ip=$(ifconfig | grep "inet addr" | sed -n 1p | cut -d':' -f2 | cut -d' ' -f1)
@@ -48,7 +48,7 @@ ssr_link_qr(){
 	SSRobfs=$(echo ${ss_obfs} | sed 's/_compatible//g')
 	SSRPWDbase64=$(urlsafe_base64 "${ss_password}")
 	#remarkBase64=$(urlsafe_base64 "gfw-breaker [${ss_server_ip}]")
-	remarkBase64=$(urlsafe_base64 "http://truth.atspace.eu/2017/12/30/legend/")
+	remarkBase64=$(urlsafe_base64 "http://truth.atspace.eu/legend/")
 	SSRbase64=$(urlsafe_base64 "${ss_server_ip}:${ss_server_port}:${SSRprotocol}:${ss_method}:${SSRobfs}:${SSRPWDbase64}/?remarks=${remarkBase64}")
 	SSRurl="ssr://${SSRbase64}"
 	qrencode -o $qr_folder/ssr.png -s 8 "${SSRurl}"
