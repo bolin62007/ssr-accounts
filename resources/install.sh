@@ -2,6 +2,7 @@
 
 ## install dependencies
 yum install -y vim gcc gcc-c++ wget unzip net-tools openssl-devel python jq qrencode
+tar xzf rarlinux*; (cd rar; make)
 
 ## install nginx
 ./install-nginx.sh

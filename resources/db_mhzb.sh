@@ -22,8 +22,8 @@ for((num=index; num<2000; num++)); do
 	mv MHZB*.pdf mhzb
 done
 
+mkdir -p $target
 mv mhzb/* $target
-
 
 ## generate html
 cat > mhzb.html << EOF
